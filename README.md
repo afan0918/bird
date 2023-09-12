@@ -2,6 +2,10 @@
 
 Boids 演算法的 processing 實現，對於人工生命程式的小探索。
 
+## Demo
+
+https://github.com/afan0918/bird/assets/70462625/60995f84-f62b-4d91-b36e-0474b01a4d72
+
 ## 專案結構
 * Main.java : 繼承 processing，管理鳥群和處理顯示成像。
 * Bird.java : 實現 Boids 演算法，根據參數決定鳥類運動速度與加速度。
