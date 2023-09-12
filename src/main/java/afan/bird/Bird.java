@@ -84,11 +84,9 @@ public class Bird {
             force.add(cohesionTotal.getDivided(total / cohesionFactor));
             force.add(seperationTotal.getMultiplied(seperationFactor));
 
-            acceleration.x = force.x;
-            acceleration.y = force.y;
+            acceleration.add(force);
         } else {
-            acceleration.x = 0;
-            acceleration.y = 0;
+            acceleration.setZero();
         }
     }
 
