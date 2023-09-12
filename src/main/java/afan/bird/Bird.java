@@ -1,21 +1,20 @@
 package afan.bird;
 
-import java.util.List;
 import java.util.Random;
 
 import static afan.bird.Vector2d.subtract;
 
 public class Bird {
-    double acc_rate = 0.1;
+    double learn_rate = 0.05;
     double max_speed = 2;
-    double birdVision = 50;
+    double birdVision = 30;
     double alignmentFactor = 1;
     double cohesionFactor = 0.1;
     double seperationFactor = 1.5;
     double angle = 0;
 
-    int width;
-    int height;
+    double width;
+    double height;
 
     Vector2d position;
     Vector2d velocity;
@@ -32,13 +31,12 @@ public class Bird {
     }
 
     void update() {
-        velocity.x = Math.min(velocity.x, max_speed);
-        velocity.y = Math.min(velocity.y, max_speed);
-        velocity.x = Math.max(velocity.x, -max_speed);
-        velocity.y = Math.max(velocity.y, -max_speed);
+        if (velocity.getLength() > max_speed) {
+            velocity = velocity.getNormalized().getMultiplied(max_speed);
+        }
 
         position.add(velocity);
-        velocity.add(acceleration.getMultiplied(acc_rate));
+        velocity.add(acceleration.getMultiplied(learn_rate));
 
         if (position.x < 0) position.x += width;
         else if (position.x > width) position.x -= width;

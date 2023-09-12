@@ -5,6 +5,7 @@ import processing.core.PApplet;
 public class Main extends PApplet {
     int width = 1000;
     int height = 800;
+    float scale = 5f;
     Bird[] birds = new Bird[100];
 
     @Override
@@ -15,7 +16,7 @@ public class Main extends PApplet {
     @Override
     public void start() {
         noStroke();
-        frameRate(20);
+        frameRate(30);
 
         for (int i = 0; i < birds.length; i++) {
             birds[i] = new Bird(width, height);
@@ -24,7 +25,7 @@ public class Main extends PApplet {
 
     @Override
     public void draw() {
-        background(0);
+        background(255);
 
         for (Bird bird : birds) {
             bird.getClusterForce(birds);
@@ -32,7 +33,10 @@ public class Main extends PApplet {
         }
 
         for (Bird bird : birds) {
-            circle((float) bird.position.x, (float) bird.position.y, 10);
+            float angle = (float) bird.angle;
+            triangle((float) bird.position.x + 2 * cos(angle) * scale, (float) bird.position.y + 2 * sin(angle) * scale,
+                    (float) bird.position.x - cos(angle + 20) * scale, (float) bird.position.y - sin(angle + 20) * scale,
+                    (float) bird.position.x - cos(angle - 20) * scale, (float) bird.position.y - sin(angle - 20) * scale);
         }
     }
 
