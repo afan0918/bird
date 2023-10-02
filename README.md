@@ -11,6 +11,12 @@ https://github.com/afan0918/bird/assets/70462625/60995f84-f62b-4d91-b36e-0474b01
 * Bird.java : 實現 Boids 演算法，根據參數決定鳥類運動速度與加速度。
 * Vector2d.java : 儲存長度為二向量的 class，協助進行向量計算
 
+## 進一步的應用
+創建了一個鯊魚小遊戲，請於 shark 分支查看，程式效果如下
+
+https://github.com/afan0918/bird/assets/70462625/4cef861f-2f5b-4ae7-9e2d-7b19f21b4106
+
+
 以下摘自維基百科(wiki)。
 
 https://en.wikipedia.org/wiki/Boids
